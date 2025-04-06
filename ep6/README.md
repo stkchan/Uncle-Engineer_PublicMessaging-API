@@ -47,3 +47,31 @@ virtualenv is a tool that lets you create isolated Python environments. This mea
    python manage.py runserver
    ```
 4. Visit to ```http://127.0.0.1:8000``` in my browser.
+5. Apply database migrations:
+   ```bash
+   python manage.py migrate
+   ```
+6. Create an admin (superuser) account:
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+   ```
+   Username: admin
+   Email address: admin@example.com
+   Password: ********
+   Password (again): ********
+   Superuser created successfully.
+    ```
+   Once the superuser is created, run the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+   
+
+
+
+
+
+   
