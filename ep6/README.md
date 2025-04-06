@@ -145,6 +145,50 @@ virtualenv is a tool that lets you create isolated Python environments. This mea
        def home(request):
        return HttpResponse("<h1>Hello World!</h1>")
    ```
+   7.5 In "firstweb"  ```settings.py``` Add Script:
+   ``` Python
+       STATIC_URL      = '/static/'
+       STATIC_ROOT     = BASE_DIR / "static"  
+       STATICFILES_DIR = [BASE_DIR / "static"]
+       MEDIA_URL       = "/media/" 
+       MEDIA_ROOT      = BASE_DIR / "media"
+   ```
+      | Setting           | Purpose                                                                         |
+      |-------------------|---------------------------------------------------------------------------------|
+      | `STATIC_URL`      | URL prefix for accessing static files (e.g., `/static/css/style.css`)           |
+      | `STATIC_ROOT`     | The directory where static files are collected using `collectstatic` (usually for production) |
+      | `STATICFILES_DIRS`| Extra directories Django will search for static files during development        |
+      | `MEDIA_URL`       | URL prefix for serving user-uploaded files (like profile pics)                  |
+      | `MEDIA_ROOT`      | The directory on disk where uploaded media files are stored                     |
+
+   7.6 In "firstweb"  ```urls.py``` Add Script:
+   ``` Python
+       if settings.DEBUG:
+       urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+       urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+   ```
+
+   FULL SCRIPT:
+   ``` Python
+       from django.contrib import admin
+       from django.urls import path, include
+       from django.conf.urls.static import static
+       from django.conf import settings
+
+       urlpatterns = [
+             path('admin/', admin.site.urls),
+             path('', include('myapp.urls')),
+       ]
+
+       if settings.DEBUG:
+             urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+             urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+   ```
+
+      - ```static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)``` - Serves uploaded files (like user images)
+      - ```static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)``` - Serves static files (CSS, JS, etc.)
+   In production, static and media files are usually served by a web server like Nginx, not Django.
+
 
    
 
