@@ -93,6 +93,58 @@ virtualenv is a tool that lets you create isolated Python environments. This mea
    - ``` apps.py ```       – App config settings.
    - ``` migrations/ ```   – Stores migration files that apply model changes to the DB.
 
+   7.1 In "firstweb"  ```setting.py``` modify by adding app name in this case is ```myapp``` and ALLOWED_HOSTS:
+   
+   ``` Python
+       # Application definition
+
+       INSTALLED_APPS = [
+          'django.contrib.admin',
+          'django.contrib.auth',
+          'django.contrib.contenttypes',
+          'django.contrib.sessions',
+          'django.contrib.messages',
+          'django.contrib.staticfiles',
+          'myapp',
+       ]
+   ```
+   ``` Python
+       ALLOWED_HOSTS = ['*']
+   ```
+
+   7.2 In "firstweb"  ```urls.py``` adding path of ```myapp```:
+
+   ``` Python
+       from django.contrib import admin
+       from django.urls import path, include
+      
+       urlpatterns = [
+           path('admin/', admin.site.urls),
+           path('', include('myapp.urls')),
+       ]  
+   ```
+
+   7.3 Create a file named ```urls.py``` in myapp folder:
+
+   ``` Python
+       from django.urls import path
+       from .views import *
+
+       urlpatterns = [
+          path('', home) #receive "home" function from "views.py"
+       ]
+   ```
+
+   7.4 Add function in ```views.py``` file for displaying in our host:
+
+   ``` Python
+       from django.shortcuts import render
+       from django.http import HttpResponse
+
+       # Create your views here.
+       def home(request):
+       return HttpResponse("<h1>Hello World!</h1>")
+   ```
 
    
 
