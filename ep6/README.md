@@ -67,6 +67,32 @@ virtualenv is a tool that lets you create isolated Python environments. This mea
    ```bash
    python manage.py runserver
    ```
+7. Create a new Django app named ```<app name>```
+   ```bash
+   python manage.py startapp <app name>
+   ```
+   📂 What startapp creates:
+   Running startapp myapp creates this structure:
+   
+   ```text
+   myapp/
+   ├── __init__.py
+   ├── admin.py
+   ├── apps.py
+   ├── migrations/
+   │   └── __init__.py
+   ├── models.py
+   ├── tests.py
+   └── views.py
+   ```
+   
+   Here's what some of those files do:
+   - ``` models.py ```     – Define your database models here.
+   - ``` views.py ```      – Handle the logic for your web pages.
+   - ``` admin.py ```      – Customize how models appear in the admin panel.
+   - ``` apps.py ```       – App config settings.
+   - ``` migrations/ ```   – Stores migration files that apply model changes to the DB.
+
 
    
 
