@@ -1,3 +1,4 @@
+# virtualenv
 ### 🔍 What is virtualenv?
 virtualenv is a tool that lets you create isolated Python environments. This means you can have separate sets of Python packages for different projects without conflicts.
 
@@ -24,3 +25,18 @@ virtualenv is a tool that lets you create isolated Python environments. This mea
    ```bash
       deactivate
    ```
+
+# Django
+1. Install Django:
+   ```bash
+   pip install django
+   ```
+   
+2. Create a new Django project named  ```firstweb ```:
+   ```bash
+   django-admin startproject firstweb
+   ```
+   Breaking it down:
+   - ```django-admin```: A command-line utility provided by Django to perform various tasks like creating projects, apps, etc.
+   - ```startproject```: A subcommand that tells Django to set up the basic structure for a new project.
+   - ```firstweb```: The name of my new project.
