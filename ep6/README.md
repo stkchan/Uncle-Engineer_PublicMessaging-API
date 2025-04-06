@@ -40,3 +40,10 @@ virtualenv is a tool that lets you create isolated Python environments. This mea
    - ```django-admin```: A command-line utility provided by Django to perform various tasks like creating projects, apps, etc.
    - ```startproject```: A subcommand that tells Django to set up the basic structure for a new project.
    - ```firstweb```: The name of my new project.
+
+3. Run the development server:
+   ```bash
+   cd firstweb
+   python manage.py runserver
+   ```
+4. Visit to ```http://127.0.0.1:8000``` in my browser.
